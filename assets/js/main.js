@@ -38,8 +38,16 @@ $(function () {
 
     function onFieldsChange() {
         // Enables submit button when at least one option is selected and the input field is filled with an actual email
-        $('.js-newsletter-submit')
-            .prop('disabled', !isEmail($('.js-newsletter-email').val()));
+        $(".js-newsletter-submit")
+            .prop("disabled", !isEmail($(".js-newsletter-email").val()));
     }
-    $('.js-newsletter-email').on('input', onFieldsChange);
+    $(".js-newsletter-email")
+        .on("input", onFieldsChange);
+
+    $(".js-card-iniziative")
+        .on("click", function(e) {
+            if (!$(e.target).hasClass("read-more") && !$(e.target).parent().hasClass("read-more"))
+                $(".js-card-iniziative").not(this).removeClass("card-iniziative__flip");
+                $(e.currentTarget).toggleClass("card-iniziative__flip");
+        });
 });

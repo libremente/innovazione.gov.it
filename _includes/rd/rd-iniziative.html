@@ -1,0 +1,60 @@
+{% assign iniziative = site.data.rd_iniziative.rd_iniziative | sort:"name" %}
+{% assign char_truncate = 320 %}
+
+<div class="content">
+  <div class="container">
+    <h2 class="mt-4" id="iniziative-repubblica-digitale">Le iniziative</h2>
+    <div class="row">
+      {%- for iniziativa in iniziative -%}
+      <div class="col-lg-4">
+        <div class="card js-card-iniziative card-iniziative my-2">
+          <div class="front p-3 shadow">
+            <div class="row">
+              <div class="col-8 d-flex">
+                <p class="small justify-content-center align-self-center mb-0">{{ iniziativa.nome_aderente }}</p>
+              </div>
+              <div class="col-4 text-right">
+                <img src="/assets/images/aderenti-manifesto-rd/{{ iniziativa.logo_aderente}}" alt="Logo {{ iniziativa.nome_aderente }}" class="img-thumbnail mb-2 img-logo"/>
+              </div>
+              <div class="col-12">
+                <h6 class="card-title my-3">{{ iniziativa.titolo }}</h6>
+              </div>
+            </div>
+          </div>
+          <div class="back p-3 shadow">
+            <div>
+              <p class="x-small">{{ iniziativa.testo | truncate: char_truncate }}</p>
+              <div class="card-body">
+                <a class="read-more" href="#" data-toggle="modal" data-target="#modale-{{ iniziativa.nome_aderente | downcase  | replace: " ", "-" }}">
+                  <span class="text">Leggi di più</span>
+                  <svg class="icon">
+                    <use xlink:href="{{ site.baseurl }}/assets/bootstrap-italia/dist/svg/sprite.svg#it-arrow-right"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modale -->
+      <div class="modal it-dialog-scrollable fade" tabindex="-1" role="dialog" id="modale-{{ iniziativa.nome_aderente | downcase  | replace: " ", "-" }}">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{ iniziativa.titolo }}</h5>
+            </div>
+            <div class="modal-body">
+              {{ iniziativa.testo | markdownify }}
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary btn-sm" data-dismiss="modal" type="button">Chiudi</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+

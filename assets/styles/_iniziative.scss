@@ -1,0 +1,82 @@
+.heading-line {
+  width: 100%;
+  margin-left: 1rem;
+  line-height: 1;
+  padding-bottom: .5em;
+  margin-bottom: 1rem;
+  position: relative;
+  &:after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    bottom: 0;
+  }
+}
+
+
+.card-iniziative {
+  color: inherit;
+  cursor: pointer;
+  perspective: 1000px;
+  &:after {
+    display: none;
+  }
+}
+
+.front,
+.back {
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform ease-in-out .2s;
+}
+
+.front {
+  background-color: #FFF;
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    transform: scale(0.96);
+  }
+  .card.card-iniziative__flip & {
+    transform: rotateX(180deg);
+  }
+  @media screen and (min-width: 992px) {
+    min-height: 220px;
+  }
+}
+
+.back {
+  background-color: #f2f7fc;
+  position: absolute;
+  transform: rotateX(-180deg);
+  .card.card-iniziative__flip & {
+    transform: rotateX(0deg);
+  }
+}
+
+.btn-z-floating {
+  $height: 40px;
+  transform: translateZ($height);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: 300ms ease;
+}
+
+.img-logo {
+  width: 100%;
+  max-width: 128px;
+  height: 64px;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+.modal .modal-dialog .modal-content .modal-body {
+  ul, ol {
+    font-size: .88889rem;
+  }
+}

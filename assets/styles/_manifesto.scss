@@ -10,14 +10,8 @@
 
 .manifesto {
   font-family: Lora, Georgia, serif;
-  margin: 16px 0px;
-  box-shadow: 0 2px 20px 0 rgba(0,0,0,.1);
   background: #fff;
   border-right: none;
-  padding: 16px;
-  @media screen and (min-width: 992px) {
-    margin: 32px 16px;
-  }
   h1 {
     font-size: 32px;
     margin: 16px 0;
