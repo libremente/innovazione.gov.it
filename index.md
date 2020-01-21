@@ -11,5 +11,6 @@ redirect_from:
 {% include homepage/section-pa.html %}
 {% include homepage/section-cittadini-imprese.html %}
 {% include homepage/section-blog-posts.html %}
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 
